@@ -38,8 +38,10 @@ def get_menu_data():
             soup = BeautifulSoup(html, 'html.parser')
 
         
-        # 오늘 날짜 정보 수집
-        now = datetime.datetime.now()
+        # 오늘 날짜 정보 수집 (한국 시간 기준)
+        from datetime import timezone, timedelta
+        kst = timezone(timedelta(hours=9))
+        now = datetime.datetime.now(kst)
         target_yymm = now.strftime('%Y.%m')
         target_dd = now.strftime('%d')
         
