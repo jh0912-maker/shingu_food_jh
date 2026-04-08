@@ -4,13 +4,14 @@ import urllib.request
 import ssl
 import datetime
 import json
+import os
 from bs4 import BeautifulSoup
 
 # -----------------------------------------------------------------------------
 # 설정 / configuration
 # -----------------------------------------------------------------------------
-TELEGRAM_BOT_TOKEN = '8707545343:AAGLSUsmxgr2irc7aaVxjqpNvN-JEq8Ysco'
-TELEGRAM_CHAT_ID = '8400311014'
+TELEGRAM_BOT_TOKEN = os.getenv('TELEGRAM_BOT_TOKEN', '8707545343:AAGLSUsmxgr2irc7aaVxjqpNvN-JEq8Ysco')
+TELEGRAM_CHAT_ID = os.getenv('TELEGRAM_CHAT_ID', '8400311014')
 
 class MenuApp:
     def __init__(self, root):

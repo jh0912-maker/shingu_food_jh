@@ -3,15 +3,15 @@ import ssl
 from bs4 import BeautifulSoup
 import datetime
 import json
+import os
 
 # -----------------------------------------------------------------------------
 # 설정 / configuration
 # -----------------------------------------------------------------------------
-# 1단계에서 받은 API 토큰 입력
-TELEGRAM_BOT_TOKEN = '8707545343:AAGLSUsmxgr2irc7aaVxjqpNvN-JEq8Ysco'
-
-# 2단계에서 확인한 숫자 ID 입력
-TELEGRAM_CHAT_ID = '8400311014'
+# GitHub Actions 또는 환경 변수에서 토큰과 ID를 가져옵니다.
+# 로컬에서는 하드코딩된 값을 기본값으로 사용하거나 .env 파일을 쓸 수 있게 구성할 수 있습니다.
+TELEGRAM_BOT_TOKEN = os.getenv('TELEGRAM_BOT_TOKEN', '8707545343:AAGLSUsmxgr2irc7aaVxjqpNvN-JEq8Ysco')
+TELEGRAM_CHAT_ID = os.getenv('TELEGRAM_CHAT_ID', '8400311014')
 
 def get_menu_data():
     """신구대 홈페이지에서 오늘의 식단 데이터를 가져옵니다."""
